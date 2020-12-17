@@ -27,7 +27,7 @@ public class Mgr03 {
                if(instance == null) {
                try {
                Thread.sleep(1);
-           } catch (InterruptedException e) {
+           } catch (InterruptedException e) {//半初始化，int值 ，0-》10 -》refer引用
                e.printStackTrace();
            }
 
@@ -47,18 +47,18 @@ public class Mgr03 {
             lamda表达式只有一个方法的匿名接口进行简写
         */
 
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                System.out.println(Mgr02.getInstance().hashCode());
-//            }
-//        }).start();
-     /*   new Thread(()->{
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println(Mgr02.getInstance().hashCode());
+            }
+        }).start();
+        new Thread(()->{
             System.out.println(Mgr03.getInstance().hashCode());
 
         }).start();
 
-*/
+
         }
     }
 

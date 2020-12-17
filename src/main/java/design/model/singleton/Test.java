@@ -7,7 +7,9 @@ public class Test {
         Mgr01 mgr01 = Mgr01.getInstance();
         Mgr01 mgr02 = Mgr01.getInstance();
 
-        System.out.println(mgr01==mgr02);
+        System.out.println(mgr01==mgr02);	
+    	
+    	Object o =new Object();
     }
 
 
