@@ -1,7 +1,7 @@
 package thread.high;
 
 public class T1 implements Runnable{
-	
+	//hhhhhhhhhhhhhhhhhhhhh
 	private volatile int count =100;// 保证数据的可见性 ，添加了synchronized 就不用加了volatile
 	
 	@Override
