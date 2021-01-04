@@ -1,7 +1,7 @@
 package thread.high.Atomic;
 
 
-import sun.misc.Unsafe;
+//import sun.misc.Unsafe;
 
 public class MyUnSafe {
     static class M {
@@ -11,9 +11,9 @@ public class MyUnSafe {
     }
 
    public static void main(String[] args) throws InstantiationException {
-        Unsafe unsafe = Unsafe.getUnsafe();
+      /*  Unsafe unsafe = Unsafe.getUnsafe();  // 11 版本就不能直接的引用
         M m = (M)unsafe.allocateInstance(M.class);
         m.i = 9;
-        System.out.println(m.i);
+        System.out.println(m.i);*/
     }
 }

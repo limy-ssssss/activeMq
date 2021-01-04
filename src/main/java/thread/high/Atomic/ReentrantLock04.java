@@ -32,16 +32,50 @@ public class ReentrantLock04 {
 		
 	}
 	void m2() {
-		lock.lock();
-		System.out.println("m2");
-		lock.unlock();
+		boolean flah = false;
+		try {
+			flah =lock.tryLock(3,TimeUnit.SECONDS);
+			System.out.println("m2 ..." + flah);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			if(flah) {
+				//若获取到则进行解锁
+				lock.unlock();
+			}
+		}
 	}
 	
-	public static void main() {
+	public static void main(String[] args) {
+		ReentrantLock04 r = new ReentrantLock04();
+		Thread t1 = new Thread(r::m1);
+		t1.start();
+		try {
+			TimeUnit.SECONDS.sleep(1);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		Thread t2 = new Thread(r::m2);
+		t2.start();
+		
+	/*	String a = "2002,2003,2004,";
+		String b="1,";
+		
+    	a = "'" + a.replace(",", "','") + "'";
+
+		a= "'" + a.replace(",", "','") + "'";
+		b= "'" + b.replace(",", "','") + "'";
+		System.out.println(a);//'1',''   '1','2','4','5',''
+		System.out.println(a.lastIndexOf(","));
+		//System.out.println(a.substring(0,a.lastIndexOf(",")));
+		//System.out.println(b.substring(0,b.lastIndexOf(",")));
+		a.lastIndexOf(",");*/
+
 		
 	}
 	 
-	// @formatter:on
+
 
 
 }
